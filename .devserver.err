@@ -1,0 +1,230 @@
+Browserslist: browsers data (caniuse-lite) is 9 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+[2m10:21:19 pm[22m [31m[1m[vite][22m[39m Pre-transform error:   x Expected ';', '}' or <eof>
+     ,-[C:/Users/HP/Desktop/internverse-manager-main/src/services/api.ts:150:1]
+ 147 |     return res.data;
+ 148 |   },
+ 149 | 
+ 150 |   downloadCertificate: async (internId: string): Promise<{ url: string }> => {`r`n    return fallback(`r`n      async () => {`r`n        const { data } = await apiClient.get(`/certificates/${internId}`);`r`n        return data;`r`n      },`r`n      { url: `http://localhost:8081/api/certificates/${internId}.pdf` },`r`n    );`r`n  },
+     :                                                                               ^|^^
+     :                                                                                `-- This is the expression part of an expression statement
+ 151 | 
+ 152 |   fetchPerformance: async (internId: string) => {`r`n    return fallback(`r`n      async () => {`r`n        const { data } = await apiClient.get(`/performance/${internId}`);`r`n        return data;`r`n      },`r`n      {`r`n        score: mockInterns.find((i) => i.id === internId)?.score || 0,`r`n        totalTasks: mockTasks.filter((t) => t.assignedTo === internId).length,`r`n        completed: mockTasks.filter((t) => t.assignedTo === internId && t.status === "Evaluated").length,`r`n        submitted: mockTasks.filter((t) => t.assignedTo === internId && t.status === "Submitted").length,`r`n        pending: mockTasks.filter((t) => t.assignedTo === internId && t.status === "Pending").length,`r`n        ratings: mockEvaluations`r`n          .filter((e) => e.internId === internId && e.rating !== null)`r`n          .map((e) => ({ task: e.taskTitle, rating: e.rating as number, feedback: e.feedback })),`r`n      },`r`n    );`r`n  },
+ 153 | };
+     `----
+
+
+Caused by:
+    Syntax Error
+[2m10:21:19 pm[22m [31m[1m[vite][22m[39m Pre-transform error:   x Expected ';', '}' or <eof>
+     ,-[C:/Users/HP/Desktop/internverse-manager-main/src/services/api.ts:150:1]
+ 147 |     return res.data;
+ 148 |   },
+ 149 | 
+ 150 |   downloadCertificate: async (internId: string): Promise<{ url: string }> => {`r`n    return fallback(`r`n      async () => {`r`n        const { data } = await apiClient.get(`/certificates/${internId}`);`r`n        return data;`r`n      },`r`n      { url: `http://localhost:8081/api/certificates/${internId}.pdf` },`r`n    );`r`n  },
+     :                                                                               ^|^^
+     :                                                                                `-- This is the expression part of an expression statement
+ 151 | 
+ 152 |   fetchPerformance: async (internId: string) => {`r`n    return fallback(`r`n      async () => {`r`n        const { data } = await apiClient.get(`/performance/${internId}`);`r`n        return data;`r`n      },`r`n      {`r`n        score: mockInterns.find((i) => i.id === internId)?.score || 0,`r`n        totalTasks: mockTasks.filter((t) => t.assignedTo === internId).length,`r`n        completed: mockTasks.filter((t) => t.assignedTo === internId && t.status === "Evaluated").length,`r`n        submitted: mockTasks.filter((t) => t.assignedTo === internId && t.status === "Submitted").length,`r`n        pending: mockTasks.filter((t) => t.assignedTo === internId && t.status === "Pending").length,`r`n        ratings: mockEvaluations`r`n          .filter((e) => e.internId === internId && e.rating !== null)`r`n          .map((e) => ({ task: e.taskTitle, rating: e.rating as number, feedback: e.feedback })),`r`n      },`r`n    );`r`n  },
+ 153 | };
+     `----
+
+
+Caused by:
+    Syntax Error
+[2m10:21:20 pm[22m [31m[1m[vite][22m[39m Pre-transform error:   x Expected ';', '}' or <eof>
+     ,-[C:/Users/HP/Desktop/internverse-manager-main/src/services/api.ts:150:1]
+ 147 |     return res.data;
+ 148 |   },
+ 149 | 
+ 150 |   downloadCertificate: async (internId: string): Promise<{ url: string }> => {`r`n    return fallback(`r`n      async () => {`r`n        const { data } = await apiClient.get(`/certificates/${internId}`);`r`n        return data;`r`n      },`r`n      { url: `http://localhost:8081/api/certificates/${internId}.pdf` },`r`n    );`r`n  },
+     :                                                                               ^|^^
+     :                                                                                `-- This is the expression part of an expression statement
+ 151 | 
+ 152 |   fetchPerformance: async (internId: string) => {`r`n    return fallback(`r`n      async () => {`r`n        const { data } = await apiClient.get(`/performance/${internId}`);`r`n        return data;`r`n      },`r`n      {`r`n        score: mockInterns.find((i) => i.id === internId)?.score || 0,`r`n        totalTasks: mockTasks.filter((t) => t.assignedTo === internId).length,`r`n        completed: mockTasks.filter((t) => t.assignedTo === internId && t.status === "Evaluated").length,`r`n        submitted: mockTasks.filter((t) => t.assignedTo === internId && t.status === "Submitted").length,`r`n        pending: mockTasks.filter((t) => t.assignedTo === internId && t.status === "Pending").length,`r`n        ratings: mockEvaluations`r`n          .filter((e) => e.internId === internId && e.rating !== null)`r`n          .map((e) => ({ task: e.taskTitle, rating: e.rating as number, feedback: e.feedback })),`r`n      },`r`n    );`r`n  },
+ 153 | };
+     `----
+
+
+Caused by:
+    Syntax Error
+[2m10:21:20 pm[22m [31m[1m[vite][22m[39m Pre-transform error:   x Expected ';', '}' or <eof>
+     ,-[C:/Users/HP/Desktop/internverse-manager-main/src/services/api.ts:150:1]
+ 147 |     return res.data;
+ 148 |   },
+ 149 | 
+ 150 |   downloadCertificate: async (internId: string): Promise<{ url: string }> => {`r`n    return fallback(`r`n      async () => {`r`n        const { data } = await apiClient.get(`/certificates/${internId}`);`r`n        return data;`r`n      },`r`n      { url: `http://localhost:8081/api/certificates/${internId}.pdf` },`r`n    );`r`n  },
+     :                                                                               ^|^^
+     :                                                                                `-- This is the expression part of an expression statement
+ 151 | 
+ 152 |   fetchPerformance: async (internId: string) => {`r`n    return fallback(`r`n      async () => {`r`n        const { data } = await apiClient.get(`/performance/${internId}`);`r`n        return data;`r`n      },`r`n      {`r`n        score: mockInterns.find((i) => i.id === internId)?.score || 0,`r`n        totalTasks: mockTasks.filter((t) => t.assignedTo === internId).length,`r`n        completed: mockTasks.filter((t) => t.assignedTo === internId && t.status === "Evaluated").length,`r`n        submitted: mockTasks.filter((t) => t.assignedTo === internId && t.status === "Submitted").length,`r`n        pending: mockTasks.filter((t) => t.assignedTo === internId && t.status === "Pending").length,`r`n        ratings: mockEvaluations`r`n          .filter((e) => e.internId === internId && e.rating !== null)`r`n          .map((e) => ({ task: e.taskTitle, rating: e.rating as number, feedback: e.feedback })),`r`n      },`r`n    );`r`n  },
+ 153 | };
+     `----
+
+
+Caused by:
+    Syntax Error
+[2m10:21:20 pm[22m [31m[1m[vite][22m[39m Pre-transform error:   x Expected ';', '}' or <eof>
+     ,-[C:/Users/HP/Desktop/internverse-manager-main/src/services/api.ts:150:1]
+ 147 |     return res.data;
+ 148 |   },
+ 149 | 
+ 150 |   downloadCertificate: async (internId: string): Promise<{ url: string }> => {`r`n    return fallback(`r`n      async () => {`r`n        const { data } = await apiClient.get(`/certificates/${internId}`);`r`n        return data;`r`n      },`r`n      { url: `http://localhost:8081/api/certificates/${internId}.pdf` },`r`n    );`r`n  },
+     :                                                                               ^|^^
+     :                                                                                `-- This is the expression part of an expression statement
+ 151 | 
+ 152 |   fetchPerformance: async (internId: string) => {`r`n    return fallback(`r`n      async () => {`r`n        const { data } = await apiClient.get(`/performance/${internId}`);`r`n        return data;`r`n      },`r`n      {`r`n        score: mockInterns.find((i) => i.id === internId)?.score || 0,`r`n        totalTasks: mockTasks.filter((t) => t.assignedTo === internId).length,`r`n        completed: mockTasks.filter((t) => t.assignedTo === internId && t.status === "Evaluated").length,`r`n        submitted: mockTasks.filter((t) => t.assignedTo === internId && t.status === "Submitted").length,`r`n        pending: mockTasks.filter((t) => t.assignedTo === internId && t.status === "Pending").length,`r`n        ratings: mockEvaluations`r`n          .filter((e) => e.internId === internId && e.rating !== null)`r`n          .map((e) => ({ task: e.taskTitle, rating: e.rating as number, feedback: e.feedback })),`r`n      },`r`n    );`r`n  },
+ 153 | };
+     `----
+
+
+Caused by:
+    Syntax Error
+[2m10:21:20 pm[22m [31m[1m[vite][22m[39m Pre-transform error:   x Expected ';', '}' or <eof>
+     ,-[C:/Users/HP/Desktop/internverse-manager-main/src/services/api.ts:150:1]
+ 147 |     return res.data;
+ 148 |   },
+ 149 | 
+ 150 |   downloadCertificate: async (internId: string): Promise<{ url: string }> => {`r`n    return fallback(`r`n      async () => {`r`n        const { data } = await apiClient.get(`/certificates/${internId}`);`r`n        return data;`r`n      },`r`n      { url: `http://localhost:8081/api/certificates/${internId}.pdf` },`r`n    );`r`n  },
+     :                                                                               ^|^^
+     :                                                                                `-- This is the expression part of an expression statement
+ 151 | 
+ 152 |   fetchPerformance: async (internId: string) => {`r`n    return fallback(`r`n      async () => {`r`n        const { data } = await apiClient.get(`/performance/${internId}`);`r`n        return data;`r`n      },`r`n      {`r`n        score: mockInterns.find((i) => i.id === internId)?.score || 0,`r`n        totalTasks: mockTasks.filter((t) => t.assignedTo === internId).length,`r`n        completed: mockTasks.filter((t) => t.assignedTo === internId && t.status === "Evaluated").length,`r`n        submitted: mockTasks.filter((t) => t.assignedTo === internId && t.status === "Submitted").length,`r`n        pending: mockTasks.filter((t) => t.assignedTo === internId && t.status === "Pending").length,`r`n        ratings: mockEvaluations`r`n          .filter((e) => e.internId === internId && e.rating !== null)`r`n          .map((e) => ({ task: e.taskTitle, rating: e.rating as number, feedback: e.feedback })),`r`n      },`r`n    );`r`n  },
+ 153 | };
+     `----
+
+
+Caused by:
+    Syntax Error
+[2m10:21:20 pm[22m [31m[1m[vite][22m[39m Pre-transform error:   x Expected ';', '}' or <eof>
+     ,-[C:/Users/HP/Desktop/internverse-manager-main/src/services/api.ts:150:1]
+ 147 |     return res.data;
+ 148 |   },
+ 149 | 
+ 150 |   downloadCertificate: async (internId: string): Promise<{ url: string }> => {`r`n    return fallback(`r`n      async () => {`r`n        const { data } = await apiClient.get(`/certificates/${internId}`);`r`n        return data;`r`n      },`r`n      { url: `http://localhost:8081/api/certificates/${internId}.pdf` },`r`n    );`r`n  },
+     :                                                                               ^|^^
+     :                                                                                `-- This is the expression part of an expression statement
+ 151 | 
+ 152 |   fetchPerformance: async (internId: string) => {`r`n    return fallback(`r`n      async () => {`r`n        const { data } = await apiClient.get(`/performance/${internId}`);`r`n        return data;`r`n      },`r`n      {`r`n        score: mockInterns.find((i) => i.id === internId)?.score || 0,`r`n        totalTasks: mockTasks.filter((t) => t.assignedTo === internId).length,`r`n        completed: mockTasks.filter((t) => t.assignedTo === internId && t.status === "Evaluated").length,`r`n        submitted: mockTasks.filter((t) => t.assignedTo === internId && t.status === "Submitted").length,`r`n        pending: mockTasks.filter((t) => t.assignedTo === internId && t.status === "Pending").length,`r`n        ratings: mockEvaluations`r`n          .filter((e) => e.internId === internId && e.rating !== null)`r`n          .map((e) => ({ task: e.taskTitle, rating: e.rating as number, feedback: e.feedback })),`r`n      },`r`n    );`r`n  },
+ 153 | };
+     `----
+
+
+Caused by:
+    Syntax Error
+[2m10:21:20 pm[22m [31m[1m[vite][22m[39m Pre-transform error:   x Expected ';', '}' or <eof>
+     ,-[C:/Users/HP/Desktop/internverse-manager-main/src/services/api.ts:150:1]
+ 147 |     return res.data;
+ 148 |   },
+ 149 | 
+ 150 |   downloadCertificate: async (internId: string): Promise<{ url: string }> => {`r`n    return fallback(`r`n      async () => {`r`n        const { data } = await apiClient.get(`/certificates/${internId}`);`r`n        return data;`r`n      },`r`n      { url: `http://localhost:8081/api/certificates/${internId}.pdf` },`r`n    );`r`n  },
+     :                                                                               ^|^^
+     :                                                                                `-- This is the expression part of an expression statement
+ 151 | 
+ 152 |   fetchPerformance: async (internId: string) => {`r`n    return fallback(`r`n      async () => {`r`n        const { data } = await apiClient.get(`/performance/${internId}`);`r`n        return data;`r`n      },`r`n      {`r`n        score: mockInterns.find((i) => i.id === internId)?.score || 0,`r`n        totalTasks: mockTasks.filter((t) => t.assignedTo === internId).length,`r`n        completed: mockTasks.filter((t) => t.assignedTo === internId && t.status === "Evaluated").length,`r`n        submitted: mockTasks.filter((t) => t.assignedTo === internId && t.status === "Submitted").length,`r`n        pending: mockTasks.filter((t) => t.assignedTo === internId && t.status === "Pending").length,`r`n        ratings: mockEvaluations`r`n          .filter((e) => e.internId === internId && e.rating !== null)`r`n          .map((e) => ({ task: e.taskTitle, rating: e.rating as number, feedback: e.feedback })),`r`n      },`r`n    );`r`n  },
+ 153 | };
+     `----
+
+
+Caused by:
+    Syntax Error
+[2m10:21:20 pm[22m [31m[1m[vite][22m[39m Pre-transform error:   x Expected ';', '}' or <eof>
+     ,-[C:/Users/HP/Desktop/internverse-manager-main/src/services/api.ts:150:1]
+ 147 |     return res.data;
+ 148 |   },
+ 149 | 
+ 150 |   downloadCertificate: async (internId: string): Promise<{ url: string }> => {`r`n    return fallback(`r`n      async () => {`r`n        const { data } = await apiClient.get(`/certificates/${internId}`);`r`n        return data;`r`n      },`r`n      { url: `http://localhost:8081/api/certificates/${internId}.pdf` },`r`n    );`r`n  },
+     :                                                                               ^|^^
+     :                                                                                `-- This is the expression part of an expression statement
+ 151 | 
+ 152 |   fetchPerformance: async (internId: string) => {`r`n    return fallback(`r`n      async () => {`r`n        const { data } = await apiClient.get(`/performance/${internId}`);`r`n        return data;`r`n      },`r`n      {`r`n        score: mockInterns.find((i) => i.id === internId)?.score || 0,`r`n        totalTasks: mockTasks.filter((t) => t.assignedTo === internId).length,`r`n        completed: mockTasks.filter((t) => t.assignedTo === internId && t.status === "Evaluated").length,`r`n        submitted: mockTasks.filter((t) => t.assignedTo === internId && t.status === "Submitted").length,`r`n        pending: mockTasks.filter((t) => t.assignedTo === internId && t.status === "Pending").length,`r`n        ratings: mockEvaluations`r`n          .filter((e) => e.internId === internId && e.rating !== null)`r`n          .map((e) => ({ task: e.taskTitle, rating: e.rating as number, feedback: e.feedback })),`r`n      },`r`n    );`r`n  },
+ 153 | };
+     `----
+
+
+Caused by:
+    Syntax Error
+[2m10:21:20 pm[22m [31m[1m[vite][22m[39m Pre-transform error:   x Expected ';', '}' or <eof>
+     ,-[C:/Users/HP/Desktop/internverse-manager-main/src/services/api.ts:150:1]
+ 147 |     return res.data;
+ 148 |   },
+ 149 | 
+ 150 |   downloadCertificate: async (internId: string): Promise<{ url: string }> => {`r`n    return fallback(`r`n      async () => {`r`n        const { data } = await apiClient.get(`/certificates/${internId}`);`r`n        return data;`r`n      },`r`n      { url: `http://localhost:8081/api/certificates/${internId}.pdf` },`r`n    );`r`n  },
+     :                                                                               ^|^^
+     :                                                                                `-- This is the expression part of an expression statement
+ 151 | 
+ 152 |   fetchPerformance: async (internId: string) => {`r`n    return fallback(`r`n      async () => {`r`n        const { data } = await apiClient.get(`/performance/${internId}`);`r`n        return data;`r`n      },`r`n      {`r`n        score: mockInterns.find((i) => i.id === internId)?.score || 0,`r`n        totalTasks: mockTasks.filter((t) => t.assignedTo === internId).length,`r`n        completed: mockTasks.filter((t) => t.assignedTo === internId && t.status === "Evaluated").length,`r`n        submitted: mockTasks.filter((t) => t.assignedTo === internId && t.status === "Submitted").length,`r`n        pending: mockTasks.filter((t) => t.assignedTo === internId && t.status === "Pending").length,`r`n        ratings: mockEvaluations`r`n          .filter((e) => e.internId === internId && e.rating !== null)`r`n          .map((e) => ({ task: e.taskTitle, rating: e.rating as number, feedback: e.feedback })),`r`n      },`r`n    );`r`n  },
+ 153 | };
+     `----
+
+
+Caused by:
+    Syntax Error
+[2m10:21:20 pm[22m [31m[1m[vite][22m[39m Pre-transform error:   x Expected ';', '}' or <eof>
+     ,-[C:/Users/HP/Desktop/internverse-manager-main/src/services/api.ts:150:1]
+ 147 |     return res.data;
+ 148 |   },
+ 149 | 
+ 150 |   downloadCertificate: async (internId: string): Promise<{ url: string }> => {`r`n    return fallback(`r`n      async () => {`r`n        const { data } = await apiClient.get(`/certificates/${internId}`);`r`n        return data;`r`n      },`r`n      { url: `http://localhost:8081/api/certificates/${internId}.pdf` },`r`n    );`r`n  },
+     :                                                                               ^|^^
+     :                                                                                `-- This is the expression part of an expression statement
+ 151 | 
+ 152 |   fetchPerformance: async (internId: string) => {`r`n    return fallback(`r`n      async () => {`r`n        const { data } = await apiClient.get(`/performance/${internId}`);`r`n        return data;`r`n      },`r`n      {`r`n        score: mockInterns.find((i) => i.id === internId)?.score || 0,`r`n        totalTasks: mockTasks.filter((t) => t.assignedTo === internId).length,`r`n        completed: mockTasks.filter((t) => t.assignedTo === internId && t.status === "Evaluated").length,`r`n        submitted: mockTasks.filter((t) => t.assignedTo === internId && t.status === "Submitted").length,`r`n        pending: mockTasks.filter((t) => t.assignedTo === internId && t.status === "Pending").length,`r`n        ratings: mockEvaluations`r`n          .filter((e) => e.internId === internId && e.rating !== null)`r`n          .map((e) => ({ task: e.taskTitle, rating: e.rating as number, feedback: e.feedback })),`r`n      },`r`n    );`r`n  },
+ 153 | };
+     `----
+
+
+Caused by:
+    Syntax Error
+[2m10:21:20 pm[22m [31m[1m[vite][22m[39m Pre-transform error:   x Expected ';', '}' or <eof>
+     ,-[C:/Users/HP/Desktop/internverse-manager-main/src/services/api.ts:150:1]
+ 147 |     return res.data;
+ 148 |   },
+ 149 | 
+ 150 |   downloadCertificate: async (internId: string): Promise<{ url: string }> => {`r`n    return fallback(`r`n      async () => {`r`n        const { data } = await apiClient.get(`/certificates/${internId}`);`r`n        return data;`r`n      },`r`n      { url: `http://localhost:8081/api/certificates/${internId}.pdf` },`r`n    );`r`n  },
+     :                                                                               ^|^^
+     :                                                                                `-- This is the expression part of an expression statement
+ 151 | 
+ 152 |   fetchPerformance: async (internId: string) => {`r`n    return fallback(`r`n      async () => {`r`n        const { data } = await apiClient.get(`/performance/${internId}`);`r`n        return data;`r`n      },`r`n      {`r`n        score: mockInterns.find((i) => i.id === internId)?.score || 0,`r`n        totalTasks: mockTasks.filter((t) => t.assignedTo === internId).length,`r`n        completed: mockTasks.filter((t) => t.assignedTo === internId && t.status === "Evaluated").length,`r`n        submitted: mockTasks.filter((t) => t.assignedTo === internId && t.status === "Submitted").length,`r`n        pending: mockTasks.filter((t) => t.assignedTo === internId && t.status === "Pending").length,`r`n        ratings: mockEvaluations`r`n          .filter((e) => e.internId === internId && e.rating !== null)`r`n          .map((e) => ({ task: e.taskTitle, rating: e.rating as number, feedback: e.feedback })),`r`n      },`r`n    );`r`n  },
+ 153 | };
+     `----
+
+
+Caused by:
+    Syntax Error
+[2m10:21:20 pm[22m [31m[1m[vite][22m[39m Pre-transform error:   x Expected ';', '}' or <eof>
+     ,-[C:/Users/HP/Desktop/internverse-manager-main/src/services/api.ts:150:1]
+ 147 |     return res.data;
+ 148 |   },
+ 149 | 
+ 150 |   downloadCertificate: async (internId: string): Promise<{ url: string }> => {`r`n    return fallback(`r`n      async () => {`r`n        const { data } = await apiClient.get(`/certificates/${internId}`);`r`n        return data;`r`n      },`r`n      { url: `http://localhost:8081/api/certificates/${internId}.pdf` },`r`n    );`r`n  },
+     :                                                                               ^|^^
+     :                                                                                `-- This is the expression part of an expression statement
+ 151 | 
+ 152 |   fetchPerformance: async (internId: string) => {`r`n    return fallback(`r`n      async () => {`r`n        const { data } = await apiClient.get(`/performance/${internId}`);`r`n        return data;`r`n      },`r`n      {`r`n        score: mockInterns.find((i) => i.id === internId)?.score || 0,`r`n        totalTasks: mockTasks.filter((t) => t.assignedTo === internId).length,`r`n        completed: mockTasks.filter((t) => t.assignedTo === internId && t.status === "Evaluated").length,`r`n        submitted: mockTasks.filter((t) => t.assignedTo === internId && t.status === "Submitted").length,`r`n        pending: mockTasks.filter((t) => t.assignedTo === internId && t.status === "Pending").length,`r`n        ratings: mockEvaluations`r`n          .filter((e) => e.internId === internId && e.rating !== null)`r`n          .map((e) => ({ task: e.taskTitle, rating: e.rating as number, feedback: e.feedback })),`r`n      },`r`n    );`r`n  },
+ 153 | };
+     `----
+
+
+Caused by:
+    Syntax Error
+[2m10:21:20 pm[22m [31m[1m[vite][22m[39m [31mInternal server error:   x Expected ';', '}' or <eof>
+     ,-[C:/Users/HP/Desktop/internverse-manager-main/src/services/api.ts:150:1]
+ 147 |     return res.data;
+ 148 |   },
+ 149 | 
+ 150 |   downloadCertificate: async (internId: string): Promise<{ url: string }> => {`r`n    return fallback(`r`n      async () => {`r`n        const { data } = await apiClient.get(`/certificates/${internId}`);`r`n        return data;`r`n      },`r`n      { url: `http://localhost:8081/api/certificates/${internId}.pdf` },`r`n    );`r`n  },
+     :                                                                               ^|^^
+     :                                                                                `-- This is the expression part of an expression statement
+ 151 | 
+ 152 |   fetchPerformance: async (internId: string) => {`r`n    return fallback(`r`n      async () => {`r`n        const { data } = await apiClient.get(`/performance/${internId}`);`r`n        return data;`r`n      },`r`n      {`r`n        score: mockInterns.find((i) => i.id === internId)?.score || 0,`r`n        totalTasks: mockTasks.filter((t) => t.assignedTo === internId).length,`r`n        completed: mockTasks.filter((t) => t.assignedTo === internId && t.status === "Evaluated").length,`r`n        submitted: mockTasks.filter((t) => t.assignedTo === internId && t.status === "Submitted").length,`r`n        pending: mockTasks.filter((t) => t.assignedTo === internId && t.status === "Pending").length,`r`n        ratings: mockEvaluations`r`n          .filter((e) => e.internId === internId && e.rating !== null)`r`n          .map((e) => ({ task: e.taskTitle, rating: e.rating as number, feedback: e.feedback })),`r`n      },`r`n    );`r`n  },
+ 153 | };
+     `----
+
+
+Caused by:
+    Syntax Error[39m
+  Plugin: [35mvite:react-swc[39m
+  File: [36mC:/Users/HP/Desktop/internverse-manager-main/src/services/api.ts[39m
+  
