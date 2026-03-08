@@ -1,73 +1,64 @@
-# Welcome to your Lovable project
+# Internverse
 
-## Project info
+Internverse is a full-stack internship management platform with role-based portals for Intern, Admin, and HR.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## Features
+- Role-based authentication (Intern/Admin/HR)
+- Sign up and sign in
+- Forgot password (reset by email + role)
+- Intern task tracking and submission
+- Admin intern/task management
+- HR evaluations and reports
+- Performance dashboard and certificate API
 
-## How can I edit this code?
+## Tech Stack
+- Frontend: React, TypeScript, Vite, Tailwind, shadcn-ui
+- Backend: Spring Boot 3, Java 21, Spring Security, JWT
+- Database: MongoDB
 
-There are several ways of editing your application.
+## Project Structure
+- `src/` - React frontend
+- `backend/` - Spring Boot backend
 
-**Use Lovable**
+## Local Setup
+### 1. Start MongoDB
+Default backend DB URI:
+`mongodb://localhost:27017/internverse`
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+### 2. Start Backend
+From project root:
 
-Changes made via Lovable will be committed automatically to this repo.
+```bash
+tools/apache-maven-3.9.9/bin/mvn.cmd -f backend/pom.xml spring-boot:run
+```
 
-**Use your preferred IDE**
+Backend runs on:
+`http://localhost:8081`
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### 3. Start Frontend
+From project root:
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+```bash
+npm install
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+Frontend runs on:
+`http://localhost:8080` (or `5173` if available)
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## API Base URL
+`http://localhost:8081/api`
 
-**Use GitHub Codespaces**
+## Main Auth Endpoints
+- `POST /api/auth/signup`
+- `POST /api/auth/login`
+- `POST /api/auth/forgot-password`
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Demo Accounts
+- `intern@internverse.com` / `password123`
+- `admin@internverse.com` / `password123`
+- `hr@internverse.com` / `password123`
 
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+## Notes
+- Seed data is inserted only when Mongo collections are empty.
+- CORS is configured for localhost frontend dev ports.
