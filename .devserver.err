@@ -228,3 +228,19 @@ Caused by:
   Plugin: [35mvite:react-swc[39m
   File: [36mC:/Users/HP/Desktop/internverse-manager-main/src/services/api.ts[39m
   
+[2m11:47:29 am[22m [31m[1m[vite][22m[39m [31mInternal server error:   x Expected ';', '}' or <eof>
+   ,-[C:/Users/HP/Desktop/internverse-manager-main/src/pages/Login.tsx:1:1]
+ 1 | import { useState } from "react";`r`nimport { useNavigate } from "react-router-dom";
+   :                                  ^|^^^^^^^^
+   :                                   `-- This is the expression part of an expression statement
+ 2 | import { useAuth, UserRole } from "@/contexts/AuthContext";
+ 3 | import { Eye, EyeOff, LogIn } from "lucide-react";
+ 4 | import loginHero from "@/assets/login-hero.png";
+   `----
+
+
+Caused by:
+    Syntax Error[39m
+  Plugin: [35mvite:react-swc[39m
+  File: [36mC:/Users/HP/Desktop/internverse-manager-main/src/pages/Login.tsx[39m
+  

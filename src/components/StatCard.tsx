@@ -30,19 +30,20 @@ export function StatCard({ title, value, icon: Icon, gradient, change, changeTyp
       <div className="relative z-10">
         <div className="flex items-start justify-between">
           <div>
-            <p className="text-sm font-medium opacity-85 mb-1">{title}</p>
-            <p className="text-3xl font-bold">{value}</p>
+            <p className="text-lg font-medium opacity-90 mb-1">{title}</p>
+            <p className="text-4xl font-bold">{value}</p>
             {change && (
-              <p className="text-xs mt-1 font-medium" style={{ color: changeColor }}>
+              <p className="text-sm mt-1.5 font-medium" style={{ color: changeColor }}>
                 {change}
               </p>
             )}
           </div>
-          <div className="p-2.5 rounded-xl bg-white/15 backdrop-blur-sm">
-            <Icon size={22} />
+          <div className="p-3 rounded-xl bg-white/15 backdrop-blur-sm">
+            <Icon size={24} />
           </div>
         </div>
       </div>
     </div>
   );
 }
+

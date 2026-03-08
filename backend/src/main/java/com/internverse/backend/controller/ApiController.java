@@ -2,9 +2,12 @@ package com.internverse.backend.controller;
 
 import com.internverse.backend.dto.AddInternRequest;
 import com.internverse.backend.dto.AssignTaskRequest;
+import com.internverse.backend.dto.ForgotPasswordRequest;
 import com.internverse.backend.dto.LoginRequest;
+import com.internverse.backend.dto.SignupRequest;
 import com.internverse.backend.dto.SubmitEvaluationRequest;
 import com.internverse.backend.dto.SubmitTaskRequest;
+import com.internverse.backend.service.AuthService;
 import com.internverse.backend.service.InMemoryDataService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
@@ -17,9 +20,11 @@ import java.util.Map;
 @RequestMapping("/api")
 public class ApiController {
   private final InMemoryDataService data;
+  private final AuthService authService;
 
-  public ApiController(InMemoryDataService data) {
+  public ApiController(InMemoryDataService data, AuthService authService) {
     this.data = data;
+    this.authService = authService;
   }
 
   @GetMapping({"", "/"})
@@ -38,11 +43,17 @@ public class ApiController {
 
   @PostMapping("/auth/login")
   public Map<String, Object> login(@Valid @RequestBody LoginRequest req) {
-    return Map.of(
-      "success", true,
-      "token", "mock-token-" + req.role(),
-      "user", Map.of("email", req.email(), "role", req.role())
-    );
+    return authService.login(req);
+  }
+
+  @PostMapping("/auth/signup")
+  public Map<String, Object> signup(@Valid @RequestBody SignupRequest req) {
+    return authService.signup(req);
+  }
+
+  @PostMapping("/auth/forgot-password")
+  public Map<String, Object> forgotPassword(@Valid @RequestBody ForgotPasswordRequest req) {
+    return authService.forgotPassword(req);
   }
 
   @GetMapping("/tasks")

@@ -9,13 +9,37 @@ const apiClient = axios.create({
 });
 
 apiClient.interceptors.request.use((config) => {
+  const token = localStorage.getItem("internverse_token");
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+    return config;
+  }
+
   const user = localStorage.getItem("internverse_user");
   if (user) {
     const parsed = JSON.parse(user);
-    config.headers.Authorization = `Bearer mock-token-${parsed.id}`;
+    if (parsed?.id) {
+      config.headers.Authorization = `Bearer mock-token-${parsed.id}`;
+    }
   }
   return config;
 });
+
+export type UserRole = "intern" | "admin" | "hr";
+
+export type AuthUser = {
+  id: string;
+  name: string;
+  email: string;
+  role: UserRole;
+  avatar?: string;
+};
+
+export type LoginResponse = {
+  success: boolean;
+  token: string;
+  user: AuthUser;
+};
 
 export type Task = {
   id: string;
@@ -82,8 +106,18 @@ const fallback = async <T>(fn: () => Promise<T>, mock: T): Promise<T> => {
 };
 
 export const api = {
-  login: async (email: string, password: string, role: string) => {
+  login: async (email: string, password: string, role: UserRole): Promise<LoginResponse> => {
     const { data } = await apiClient.post("/auth/login", { email, password, role });
+    return data;
+  },
+
+  signup: async (name: string, email: string, password: string, role: UserRole): Promise<LoginResponse> => {
+    const { data } = await apiClient.post("/auth/signup", { name, email, password, role });
+    return data;
+  },
+
+  forgotPassword: async (email: string, role: UserRole, newPassword: string): Promise<{ success: boolean; message: string }> => {
+    const { data } = await apiClient.post("/auth/forgot-password", { email, role, newPassword });
     return data;
   },
 
@@ -178,3 +212,5 @@ export const api = {
 };
 
 export default apiClient;
+
+

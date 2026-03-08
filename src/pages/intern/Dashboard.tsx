@@ -11,7 +11,10 @@ export default function InternDashboard() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    api.fetchPerformance(user?.id || "intern-1").then((d) => { setPerf(d); setLoading(false); });
+    api.fetchPerformance(user?.id || "intern-1").then((d) => {
+      setPerf(d);
+      setLoading(false);
+    });
   }, [user]);
 
   const recentActivity = [
@@ -22,33 +25,31 @@ export default function InternDashboard() {
 
   return (
     <DashboardLayout title="My Dashboard">
-      <div className="space-y-6 animate-fade-in">
-        {/* Welcome Banner */}
+      <div className="space-y-7 animate-fade-in">
         <div
-          className="rounded-2xl p-6 text-white relative overflow-hidden"
+          className="rounded-2xl p-8 text-white relative overflow-hidden"
           style={{ background: "linear-gradient(135deg, hsl(221 83% 53%) 0%, hsl(262 83% 58%) 100%)" }}
         >
           <div className="absolute -right-8 -top-8 w-40 h-40 rounded-full bg-white/10" />
           <div className="absolute right-20 bottom-0 w-24 h-24 rounded-full bg-white/5" />
           <div className="relative z-10">
-            <p className="text-sm font-medium opacity-80 mb-1">Good day,</p>
-            <h2 className="text-2xl font-bold mb-1">{user?.name} 👋</h2>
-            <p className="text-sm opacity-75">Track your progress and stay on top of your internship goals.</p>
+            <p className="text-lg font-medium opacity-85 mb-1">Good day,</p>
+            <h2 className="text-4xl font-bold mb-2">{user?.name}</h2>
+            <p className="text-lg opacity-80">Track your progress and stay on top of your internship goals.</p>
           </div>
         </div>
 
-        {/* Stats */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5">
           <StatCard
             title="Total Tasks"
-            value={loading ? "—" : perf?.totalTasks ?? 0}
+            value={loading ? "-" : perf?.totalTasks ?? 0}
             icon={CheckSquare}
             gradient="linear-gradient(135deg, hsl(221 83% 53%), hsl(221 83% 43%))"
             change="Assigned tasks"
           />
           <StatCard
             title="Completed"
-            value={loading ? "—" : perf?.completed ?? 0}
+            value={loading ? "-" : perf?.completed ?? 0}
             icon={Award}
             gradient="linear-gradient(135deg, hsl(142 71% 45%), hsl(142 71% 35%))"
             change="Fully evaluated"
@@ -56,7 +57,7 @@ export default function InternDashboard() {
           />
           <StatCard
             title="Pending"
-            value={loading ? "—" : perf?.pending ?? 0}
+            value={loading ? "-" : perf?.pending ?? 0}
             icon={Clock}
             gradient="linear-gradient(135deg, hsl(38 92% 50%), hsl(25 95% 50%))"
             change="Awaiting submission"
@@ -64,7 +65,7 @@ export default function InternDashboard() {
           />
           <StatCard
             title="Performance"
-            value={loading ? "—" : `${perf?.score ?? 0}%`}
+            value={loading ? "-" : `${perf?.score ?? 0}%`}
             icon={BarChart2}
             gradient="linear-gradient(135deg, hsl(262 83% 58%), hsl(262 83% 48%))"
             change="Overall score"
@@ -73,18 +74,17 @@ export default function InternDashboard() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          {/* Progress */}
           <div className="lg:col-span-2 section-card">
-            <div className="flex items-center justify-between mb-5">
-              <h3 className="font-semibold text-base" style={{ color: "hsl(var(--foreground))" }}>Task Progress</h3>
-              <TrendingUp size={16} style={{ color: "hsl(var(--primary))" }} />
+            <div className="flex items-center justify-between mb-6">
+              <h3 className="font-semibold text-2xl" style={{ color: "hsl(var(--foreground))" }}>Task Progress</h3>
+              <TrendingUp size={18} style={{ color: "hsl(var(--primary))" }} />
             </div>
             {loading ? (
-              <div className="space-y-3">
-                {[1,2,3].map(i => <div key={i} className="h-8 rounded-lg bg-muted animate-pulse" />)}
+              <div className="space-y-4">
+                {[1, 2, 3].map((i) => <div key={i} className="h-9 rounded-lg bg-muted animate-pulse" />)}
               </div>
             ) : (
-              <div className="space-y-4">
+              <div className="space-y-5">
                 {[
                   { label: "Completed Tasks", value: perf?.completed || 0, total: perf?.totalTasks || 1, color: "hsl(var(--success))" },
                   { label: "Submitted Tasks", value: perf?.submitted || 0, total: perf?.totalTasks || 1, color: "hsl(var(--primary))" },
@@ -93,11 +93,11 @@ export default function InternDashboard() {
                   const pct = Math.round((item.value / item.total) * 100);
                   return (
                     <div key={item.label}>
-                      <div className="flex justify-between text-sm mb-1.5">
+                      <div className="flex justify-between text-lg mb-2">
                         <span style={{ color: "hsl(var(--foreground))" }}>{item.label}</span>
                         <span style={{ color: "hsl(var(--muted-foreground))" }}>{item.value}/{item.total}</span>
                       </div>
-                      <div className="h-2 rounded-full bg-muted overflow-hidden">
+                      <div className="h-3 rounded-full bg-muted overflow-hidden">
                         <div className="h-full rounded-full transition-all duration-700" style={{ width: `${pct}%`, background: item.color }} />
                       </div>
                     </div>
@@ -107,19 +107,18 @@ export default function InternDashboard() {
             )}
           </div>
 
-          {/* Activity */}
           <div className="section-card">
-            <h3 className="font-semibold text-base mb-5" style={{ color: "hsl(var(--foreground))" }}>Recent Activity</h3>
-            <div className="space-y-4">
+            <h3 className="font-semibold text-2xl mb-6" style={{ color: "hsl(var(--foreground))" }}>Recent Activity</h3>
+            <div className="space-y-5">
               {recentActivity.map((a, i) => (
                 <div key={i} className="flex gap-3">
                   <div
-                    className="w-2 h-2 rounded-full mt-1.5 flex-shrink-0"
+                    className="w-2.5 h-2.5 rounded-full mt-2 flex-shrink-0"
                     style={{ background: a.type === "success" ? "hsl(var(--success))" : a.type === "info" ? "hsl(var(--primary))" : "hsl(var(--muted-foreground))" }}
                   />
                   <div>
-                    <p className="text-sm leading-snug" style={{ color: "hsl(var(--foreground))" }}>{a.text}</p>
-                    <p className="text-xs mt-0.5" style={{ color: "hsl(var(--muted-foreground))" }}>{a.time}</p>
+                    <p className="text-lg leading-snug" style={{ color: "hsl(var(--foreground))" }}>{a.text}</p>
+                    <p className="text-base mt-1" style={{ color: "hsl(var(--muted-foreground))" }}>{a.time}</p>
                   </div>
                 </div>
               ))}

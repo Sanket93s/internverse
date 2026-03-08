@@ -7,7 +7,7 @@ This backend is a Spring Boot API for the existing React frontend.
 - Spring Boot 3
 - Spring Web
 - Validation
-- In-memory data store (no database yet)
+- MongoDB (Spring Data MongoDB)
 
 ## Run
 1. Install Maven 3.9+.
@@ -37,5 +37,8 @@ Server starts on `http://localhost:8081`.
 - `GET /api/performance/{internId}`
 
 ## Notes
-- Data is seeded in memory and resets when the backend restarts.
+- Data is stored in MongoDB and seed data is inserted only when collections are empty.
 - CORS is enabled for `http://localhost:5173`.
+
+## MongoDB
+Set MONGODB_URI (optional). Default: mongodb://localhost:27017/internverse.
